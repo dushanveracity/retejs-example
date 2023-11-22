@@ -1,0 +1,81 @@
+@use "sass:math";
+@import "../vars";
+
+:host {
+  display: block;
+  background: black;
+  border: 2px solid grey;
+  border-radius: 10px;
+  cursor: pointer;
+  box-sizing: border-box;
+  width: $node-width;
+  height: auto;
+  padding-bottom: 6px;
+  position: relative;
+  user-select: none;
+  position: relative;
+  &:hover {
+    background: #333;
+  }
+  &.selected {
+    border-color: red;
+  }
+  .node-container {
+    position: relative;
+  }
+  .title {
+    color: white;
+    font-family: sans-serif;
+    font-size: 18px;
+    padding: 8px;
+  }
+  .output {
+    text-align: right;
+  }
+  .input {
+    text-align: left;
+  }
+  .output-socket {
+    text-align: right;
+    margin-right: -1px;
+    display: inline-block;
+  }
+  .input-socket {
+    text-align: left;
+    margin-left: -1px;
+    display: inline-block;
+  }
+  .input-row {
+    display: flex;
+    position: absolute;
+    width: 100%;
+    justify-content: center;
+    top: -20px;
+  }
+  .output-row {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    position: absolute;
+    bottom: -30px;
+  }
+  .input-title,
+  .output-title {
+    vertical-align: middle;
+    color: white;
+    display: inline-block;
+    font-family: sans-serif;
+    font-size: 14px;
+    margin: $socket-margin;
+    line-height: $socket-size;
+  }
+  .input-control {
+    z-index: 1;
+    width: calc(100% - #{$socket-size + 2 * $socket-margin});
+    vertical-align: middle;
+    display: inline-block;
+  }
+  .control {
+    padding: $socket-margin math.div($socket-size, 2) + $socket-margin;
+  }
+}
